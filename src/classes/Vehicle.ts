@@ -1,22 +1,50 @@
-// import Driveable interface
+// Import Driveable interface
 import Driveable from '../interfaces/Driveable.js';
 
 // Vehicle class that implements Driveable interface
 class Vehicle implements Driveable {
-  // Declare properties of the Vehicle class
+  vin: string;
+  color: string;
+  make: string;
+  model: string;
+  year: number;
+  weight: number;
+  topSpeed: number;
   started: boolean;
   currentSpeed: number;
 
   // Constructor for the Vehicle class
-  constructor() {
-    this.started = false;
-    this.currentSpeed = 0;
+  constructor(
+    vin: string,
+    color: string,
+    make: string,
+    model: string,
+    year: number,
+    weight: number,
+    topSpeed: number
+  ) {
+    this.vin = vin;
+    this.color = color;
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.weight = weight;
+    this.topSpeed = topSpeed;
+    this.started = false; // Default value
+    this.currentSpeed = 0; // Default value
   }
 
   // Method to print vehicle details
   printDetails(): void {
+    console.log(`VIN: ${this.vin}`);
+    console.log(`Make: ${this.make}`);
+    console.log(`Model: ${this.model}`);
+    console.log(`Year: ${this.year}`);
+    console.log(`Weight: ${this.weight} kg`);
+    console.log(`Top Speed: ${this.topSpeed} km/h`);
+    console.log(`Color: ${this.color}`);
     console.log(`Vehicle started: ${this.started}`);
-    console.log(`Vehicle current speed: ${this.currentSpeed} mph`);
+    console.log(`Current speed: ${this.currentSpeed} mph`);
   }
 
   // Method to start the vehicle
@@ -27,7 +55,6 @@ class Vehicle implements Driveable {
 
   // Method to accelerate the vehicle
   accelerate(change: number): void {
-    // Check if the vehicle is started
     if (this.started) {
       this.currentSpeed += change;
       console.log(`Vehicle accelerated to ${this.currentSpeed} mph`);
@@ -38,7 +65,6 @@ class Vehicle implements Driveable {
 
   // Method to decelerate the vehicle
   decelerate(change: number): void {
-    // Check if the vehicle is started
     if (this.started) {
       this.currentSpeed -= change;
       console.log(`Vehicle decelerated to ${this.currentSpeed} mph`);
@@ -56,7 +82,6 @@ class Vehicle implements Driveable {
 
   // Method to turn the vehicle
   turn(direction: string): void {
-    // Check if the vehicle is started
     if (this.started) {
       console.log(`Vehicle turned ${direction}`);
     } else {
@@ -66,7 +91,6 @@ class Vehicle implements Driveable {
 
   // Method to reverse the vehicle
   reverse(): void {
-    // Check if the vehicle is started
     if (this.started) {
       console.log('Vehicle reversed');
     } else {
