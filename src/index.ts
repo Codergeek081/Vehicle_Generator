@@ -5,6 +5,9 @@ import Motorbike from "./classes/Motorbike.js";
 import Wheel from "./classes/Wheel.js";
 import Cli from "./classes/Cli.js";
 
+funtion generateVin(): string {
+  return Math.random
+}
 // create an array of vehicles
 const vehicles = [];
 
