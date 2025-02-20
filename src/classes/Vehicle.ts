@@ -92,11 +92,16 @@ class Vehicle implements Driveable {
   // Method to reverse the vehicle
   reverse(): void {
     if (this.started) {
-      console.log('Vehicle reversed');
-    } else {
       console.log('Start the vehicle first');
+      return;
+    } if (this.currentSpeed !==0) {
+      console.log('Stop the vehicle before reversing');
+      return;
     }
-  }
+      console.log("Vehcile reversed");
+    }
+  
+  
 }
 
 // Export the Vehicle class
